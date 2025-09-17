@@ -1,0 +1,147 @@
+[
+  {
+    "id": "A",
+    "name": "Mieszkanie A",
+    "floor": "Parter",
+    "area": 80.82,
+    "totalArea": 80.82,
+    "rooms": 3,
+    "price": 740000,
+    "pricePerM2": 9153.06,
+    "vatRate": 23,
+    "currency": "PLN",
+    "status": "available",
+    "priceValidFrom": "2025-09-17",
+    "totalPriceValidFrom": "2025-09-17",
+    "floorPlan": "/images/plans/plan-A.jpg",
+    "belongingRoom": "",
+    "conditioning": "Deweloperski",
+    "standard": "Deweloperski",
+    "customFields": {
+      "balcony": false,
+      "balconyArea": 0,
+      "storage": false
+    }
+  },
+  {
+    "id": "B",
+    "name": "Mieszkanie B",
+    "floor": "Piętro",
+    "area": 85.17,
+    "totalArea": 85.17,
+    "rooms": 3,
+    "price": 795000,
+    "pricePerM2": 9331.85,
+    "vatRate": 23,
+    "currency": "PLN",
+    "status": "available",
+    "priceValidFrom": "2025-09-17",
+    "totalPriceValidFrom": "2025-09-17",
+    "floorPlan": "/images/plans/plan-B.jpg",
+    "belongingRoom": "",
+    "conditioning": "Deweloperski",
+    "standard": "Deweloperski",
+    "customFields": {
+      "balcony": false,
+      "balconyArea": 0,
+      "storage": false
+    }
+  },
+  {
+    "id": "C",
+    "name": "Mieszkanie C",
+    "floor": "Parter",
+    "area": 80.82,
+    "totalArea": 80.82,
+    "rooms": 3,
+    "price": 740000,
+    "pricePerM2": 9153.06,
+    "vatRate": 23,
+    "currency": "PLN",
+    "status": "sold",
+    "priceValidFrom": "2025-09-17",
+    "totalPriceValidFrom": "2025-09-17",
+    "floorPlan": "/images/plans/plan-C.jpg",
+    "belongingRoom": "",
+    "conditioning": "Deweloperski",
+    "standard": "Deweloperski",
+    "customFields": {
+      "balcony": false,
+      "balconyArea": 0,
+      "storage": false
+    }
+  },
+  {
+    "id": "D",
+    "name": "Mieszkanie D",
+    "floor": "Piętro",
+    "area": 85.17,
+    "totalArea": 85.17,
+    "rooms": 3,
+    "price": 795000,
+    "pricePerM2": 9331.85,
+    "vatRate": 23,
+    "currency": "PLN",
+    "status": "sold",
+    "priceValidFrom": "2025-09-17",
+    "totalPriceValidFrom": "2025-09-17",
+    "floorPlan": "/images/plans/plan-D.jpg",
+    "belongingRoom": "",
+    "conditioning": "Deweloperski",
+    "standard": "Deweloperski",
+    "customFields": {
+      "balcony": false,
+      "balconyArea": 0,
+      "storage": false
+    }
+  }
+]
+    "id": "C",
+    "name": "Lokal C",
+    "floor": "I piętro",
+    "area": 68.20,
+    "totalArea": 75.80,
+    "rooms": 3,
+    "price": 680000,
+    "pricePerM2": 9970.67,
+    "vatRate": 23,
+    "currency": "PLN",
+    "status": "sold",
+    "priceValidFrom": "2025-01-01",
+    "totalPriceValidFrom": "2025-01-01",
+    "floorPlan": "/images/plans/plan-C.jpg",
+    "belongingRoom": "Piwnica ok. 5 (m²)",
+    "conditioning": "Otwórz",
+    "standard": "Otwórz",
+    "customFields": {
+      "balcony": true,
+      "balconyArea": 8.5,
+      "storage": true
+    }
+  },
+  {
+    "id": "D",
+    "name": "Lokal D",
+    "floor": "II piętro",
+    "area": 72.80,
+    "totalArea": 81.20,
+    "rooms": 3,
+    "price": 730000,
+    "pricePerM2": 10027.47,
+    "vatRate": 23,
+    "currency": "PLN",
+    "status": "reserved",
+    "priceValidFrom": "2025-01-01",
+    "totalPriceValidFrom": "2025-01-01",
+    "floorPlan": "/images/plans/plan-D.jpg",
+    "belongingRoom": "Piwnica ok. 6 (m²)",
+    "conditioning": "Otwórz",
+    "standard": "Otwórz",
+    "customFields": {
+      "balcony": true,
+      "balconyArea": 9.2,
+      "storage": true,
+      "parkingSpace": true
+    }
+  }
+]

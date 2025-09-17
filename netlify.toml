@@ -1,0 +1,32 @@
+[build]
+  publish = "build"
+  command = "npm run build && npm run generate:open-data"
+
+[functions]
+  directory = "netlify/functions"
+
+[[redirects]]
+  from = "/dataset.xml"
+  to = "/open-data/dataset.xml"
+  status = 200
+
+[[redirects]]
+  from = "/dataset.md5"
+  to = "/open-data/dataset.md5"
+  status = 200
+
+[[headers]]
+  for = "/open-data/*"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
+    Content-Type = "application/xml; charset=utf-8"
+
+[[headers]]
+  for = "/*.csv"
+  [headers.values]
+    Content-Type = "text/csv; charset=utf-8"
+
+[[headers]]
+  for = "/*.md5"
+  [headers.values]
+    Content-Type = "text/plain; charset=utf-8"

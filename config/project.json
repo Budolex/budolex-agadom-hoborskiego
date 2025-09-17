@@ -1,0 +1,48 @@
+{
+  "project": {
+    "name": "Dom przy Hoborskiego",
+    "subtitle": "Nowoczesne mieszkania w sercu Krakowa",
+    "description": "Ekskluzywny projekt mieszkaniowy zlokalizowany przy ul. Hoborskiego w Krakowie. Przestronne mieszkania w doskonałej lokalizacji.",
+    "location": "Kraków",
+    "address": "ul. Hoborskiego 5, Kraków",
+    "heroImage": "/img/KADR_1.png",
+    "gallery": [
+      "/img/KADR_2.png",
+      "/img/KADR_3.png",
+      "/img/KADR_4.png"
+    ]
+  },
+  "developer": {
+    "name": "Agadom Sp. z o.o.",
+    "address": "ul. Elżbiety Drużbackiej 136, 30-699 Kraków",
+    "city": "Kraków",
+    "postalCode": "30-699",
+    "voivodeship": "małopolskie",
+    "district": "Kraków",
+    "commune": "Kraków",
+    "nip": "6793287174",
+    "regon": "527389866",
+    "krs": "0001078988",
+    "phone": "+48 502 091 059",
+    "email": "kontakt@agadom.com.pl",
+    "website": "https://agadom.com.pl",
+    "logo": "/img/AGADOM-LOGO25.svg"
+  },
+  "openData": {
+    "datasetId": "f887ced2-b45c-4a3b-9d47-48040bef7677",
+    "updateTime": "03:00",
+    "prospectusUrl": "https://agadom.com.pl/prospekt-informacyjny-hoborskiego.pdf"
+  },
+  "site": {
+    "title": "Dom przy Hoborskiego",
+    "description": "Nowoczesne mieszkania w Krakowie od Agadom Sp. z o.o.",
+    "url": "https://agadom-hoborskiego.netlify.app",
+    "baseUrl": "/",
+    "favicon": "/img/favicon.ico"
+  },
+  "contact": {
+    "showForm": true,
+    "netlifyForm": true,
+    "formName": "contact"
+  }
+}

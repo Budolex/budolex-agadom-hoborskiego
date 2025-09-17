@@ -1,0 +1,354 @@
+.pricingTableSection {
+  padding: 4rem 0;
+  background-color: var(--ifm-color-emphasis-100);
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.sectionTitle {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--ifm-color-primary);
+}
+
+.lastUpdate {
+  color: var(--ifm-color-secondary-darker);
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.tableContainer {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.tableWrapper {
+  overflow-x: auto;
+}
+
+.pricingTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.pricingTable th {
+  background: var(--ifm-color-primary-darker);
+  color: white;
+  padding: 1rem 0.75rem;
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.875rem;
+  line-height: 1.3;
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+}
+
+.pricingTable th:last-child {
+  border-right: none;
+}
+
+.sortable {
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.2s ease;
+}
+
+.sortable:hover {
+  background: var(--ifm-color-primary-darkest);
+}
+
+.pricingTable td {
+  padding: 1rem 0.75rem;
+  text-align: center;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  border-right: 1px solid var(--ifm-color-emphasis-200);
+  vertical-align: middle;
+}
+
+.pricingTable td:last-child {
+  border-right: none;
+}
+
+.unitRow {
+  transition: background-color 0.2s ease;
+}
+
+.unitRow:hover {
+  background-color: var(--ifm-color-emphasis-100);
+}
+
+.unitRow:nth-child(even) {
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+.unitRow:nth-child(even):hover {
+  background-color: var(--ifm-color-emphasis-200);
+}
+
+/* Status-based row styling */
+.statusSold {
+  opacity: 0.6;
+}
+
+.statusReserved {
+  background-color: rgba(255, 193, 7, 0.1);
+}
+
+.statusAvailable {
+  background-color: rgba(40, 167, 69, 0.05);
+}
+
+/* Column-specific styling */
+.unitId {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--ifm-color-primary-darker);
+}
+
+.area,
+.totalArea {
+  font-weight: 600;
+  color: var(--ifm-color-secondary-darker);
+}
+
+.pricePerM2,
+.totalPrice {
+  font-weight: 600;
+  font-family: var(--ifm-font-family-monospace);
+}
+
+.totalPrice strong {
+  color: var(--ifm-color-success-dark);
+  font-size: 1.05rem;
+}
+
+.unavailablePrice {
+  color: var(--ifm-color-secondary);
+  text-decoration: line-through;
+}
+
+.belongingRoom {
+  font-size: 0.85rem;
+  color: var(--ifm-color-secondary-darker);
+}
+
+.status {
+  padding: 0.5rem 0.25rem;
+}
+
+.statusBadge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.statusAvailable .statusBadge {
+  background-color: var(--ifm-color-success-lighter);
+  color: var(--ifm-color-success-darker);
+}
+
+.statusSold .statusBadge {
+  background-color: var(--ifm-color-danger-lighter);
+  color: var(--ifm-color-danger-darker);
+}
+
+.statusReserved .statusBadge {
+  background-color: var(--ifm-color-warning-lighter);
+  color: var(--ifm-color-warning-darker);
+}
+
+.floorPlanLink {
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.floorPlanLink:hover {
+  color: var(--ifm-color-primary-dark);
+  text-decoration: underline;
+}
+
+.standard {
+  color: var(--ifm-color-secondary-darker);
+  font-size: 0.9rem;
+}
+
+/* Table footer */
+.tableFooter {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.legend h4 {
+  margin-bottom: 1rem;
+  color: var(--ifm-color-primary-darker);
+  font-size: 1rem;
+}
+
+.legendItems {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.legendColor {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.statusAvailable .legendColor {
+  background-color: var(--ifm-color-success);
+}
+
+.statusSold .legendColor {
+  background-color: var(--ifm-color-danger);
+}
+
+.statusReserved .legendColor {
+  background-color: var(--ifm-color-warning);
+}
+
+.additionalInfo {
+  padding-left: 1rem;
+  border-left: 3px solid var(--ifm-color-emphasis-300);
+}
+
+.additionalInfo p {
+  margin-bottom: 0.5rem;
+  color: var(--ifm-color-secondary-darker);
+}
+
+.additionalInfo small {
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+.actionButtons {
+  text-align: center;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Responsive design */
+@media screen and (max-width: 1200px) {
+  .pricingTable {
+    font-size: 0.85rem;
+  }
+  
+  .pricingTable th,
+  .pricingTable td {
+    padding: 0.75rem 0.5rem;
+  }
+}
+
+@media screen and (max-width: 968px) {
+  .tableFooter {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .additionalInfo {
+    padding-left: 0;
+    border-left: none;
+    border-top: 2px solid var(--ifm-color-emphasis-300);
+    padding-top: 1rem;
+  }
+  
+  .actionButtons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .actionButtons .button {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .sectionTitle {
+    font-size: 2rem;
+  }
+  
+  .pricingTable {
+    font-size: 0.8rem;
+  }
+  
+  .pricingTable th,
+  .pricingTable td {
+    padding: 0.5rem 0.35rem;
+  }
+  
+  .pricingTable th {
+    font-size: 0.8rem;
+  }
+  
+  .unitId {
+    font-size: 1rem;
+  }
+  
+  .totalPrice strong {
+    font-size: 1rem;
+  }
+  
+  .legendItems {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .pricingTableSection {
+    padding: 2rem 0;
+  }
+  
+  .sectionHeader {
+    margin-bottom: 1.5rem;
+  }
+  
+  .tableContainer {
+    margin: 0 -1rem 1.5rem -1rem;
+    border-radius: 0;
+  }
+  
+  .pricingTable th,
+  .pricingTable td {
+    padding: 0.4rem 0.25rem;
+  }
+  
+  .statusBadge {
+    padding: 0.2rem 0.5rem;
+    font-size: 0.7rem;
+  }
+}

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datasets xmlns="http://www.dane.gov.pl/schemas/datasets"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.dane.gov.pl/schemas/datasets https://www.dane.gov.pl/static/xml/otwarte_dane_latest.xsd">
+  <dataset status="published">
+    <extIdent>f887ced2-b45c-4a3b-9d47-48040bef7677</extIdent>
+    <title>
+      <polish>Ceny ofertowe mieszkań dewelopera Agadom Sp. z o.o. w 2025 r.</polish>
+      <english>Offer prices of apartments from developer Agadom Sp. z o.o. in 2025</english>
+    </title>
+    <description>
+      <polish>Ceny ofertowe lokali mieszkalnych lub domów jednorodzinnych zgodnie z art. 16a ust. 1 pkt 1 ustawy z dnia 16 września 2011 r. o ochronie praw nabywcy lokalu mieszkalnego lub domu jednorodzinnego</polish>
+      <english>Offer prices of residential premises or single-family houses in accordance with art. 16a par. 1 point 1 of the Act of September 16, 2011 on the protection of the rights of buyers of residential premises or single-family houses</english>
+    </description>
+    <categories>
+      <category>ECON</category>
+    </categories>
+    <url>https://agadom-hoborskiego.netlify.app</url>
+    <updateFrequency>daily</updateFrequency>
+    <hasDynamicData>false</hasDynamicData>
+    <hasHighValueData>true</hasHighValueData>
+    <hasHighValueDataFromEuropeanCommissionList>false</hasHighValueDataFromEuropeanCommissionList>
+    <hasResearchData>false</hasResearchData>
+    <resources>
+      <resource status="published">
+        <extIdent>f887ced2-b45c-4a3b-9d47-48040b_20250917</extIdent>
+        <url>https://agadom-hoborskiego.netlify.app/Ceny-ofertowe-mieszkan-dewelopera-Agadom-Sp--z-o-o--2025-09-17.csv</url>
+        <title>
+          <polish>Ceny ofertowe mieszkań dewelopera Agadom Sp. z o.o. z dnia 2025-09-17</polish>
+          <english>Offer prices of apartments from developer Agadom Sp. z o.o. from 2025-09-17</english>
+        </title>
+        <description>
+          <polish>Cennik mieszkań z dnia 2025-09-17</polish>
+          <english>Price list of apartments from 2025-09-17</english>
+        </description>
+        <availability>local</availability>
+        <dataDate>2025-09-17</dataDate>
+        <hasDynamicData>false</hasDynamicData>
+        <hasHighValueData>true</hasHighValueData>
+        <hasHighValueDataFromEuropeanCommissionList>false</hasHighValueDataFromEuropeanCommissionList>
+        <hasResearchData>false</hasResearchData>
+        <containsProtectedData>false</containsProtectedData>
+      </resource>
+    </resources>
+    <tags>
+      <tag lang="pl">Deweloper</tag>
+      <tag lang="pl">Mieszkania</tag>
+      <tag lang="pl">Ceny</tag>
+      <tag lang="en">Developer</tag>
+      <tag lang="en">Apartments</tag>
+      <tag lang="en">Prices</tag>
+    </tags>
+  </dataset>
+</datasets>

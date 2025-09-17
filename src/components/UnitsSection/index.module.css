@@ -1,0 +1,205 @@
+.unitsSection {
+  padding: 4rem 0;
+  background-color: var(--ifm-background-color);
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.sectionTitle {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--ifm-color-primary);
+}
+
+.sectionDescription {
+  font-size: 1.2rem;
+  color: var(--ifm-color-secondary-darker);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.unitsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.unitCard {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.unitCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.statusAvailable {
+  border-color: var(--ifm-color-success);
+}
+
+.statusSold {
+  border-color: var(--ifm-color-danger);
+  opacity: 0.7;
+}
+
+.statusReserved {
+  border-color: var(--ifm-color-warning);
+  opacity: 0.8;
+}
+
+.unitHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.unitName {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0;
+  color: var(--ifm-color-primary-darker);
+}
+
+.status {
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.status.statusAvailable {
+  background-color: var(--ifm-color-success-lighter);
+  color: var(--ifm-color-success-darker);
+}
+
+.status.statusSold {
+  background-color: var(--ifm-color-danger-lighter);
+  color: var(--ifm-color-danger-darker);
+}
+
+.status.statusReserved {
+  background-color: var(--ifm-color-warning-lighter);
+  color: var(--ifm-color-warning-darker);
+}
+
+.floorPlan {
+  margin-bottom: 1rem;
+}
+
+.floorPlanImage {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid var(--ifm-color-emphasis-300);
+}
+
+.unitDetails {
+  margin-bottom: 1.5rem;
+}
+
+.detailRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.detailRow:last-child {
+  border-bottom: none;
+}
+
+.label {
+  font-weight: 500;
+  color: var(--ifm-color-secondary-darker);
+}
+
+.value {
+  font-weight: 600;
+  color: var(--ifm-color-primary-darker);
+}
+
+.customFields {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 2px solid var(--ifm-color-emphasis-200);
+}
+
+.unitPrice {
+  text-align: center;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background-color: var(--ifm-color-emphasis-100);
+  border-radius: 8px;
+}
+
+.price {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--ifm-color-primary);
+  margin-bottom: 0.25rem;
+}
+
+.vatInfo {
+  font-size: 0.875rem;
+  color: var(--ifm-color-secondary-darker);
+}
+
+.unavailable {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--ifm-color-secondary);
+}
+
+.unitActions {
+  text-align: center;
+}
+
+.unitActions .button {
+  width: 100%;
+}
+
+.legalInfo {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 2px solid var(--ifm-color-emphasis-200);
+  text-align: center;
+  color: var(--ifm-color-secondary-darker);
+}
+
+.legalInfo p {
+  margin-bottom: 0.5rem;
+}
+
+@media screen and (max-width: 768px) {
+  .unitsGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .unitCard {
+    padding: 1rem;
+  }
+  
+  .sectionTitle {
+    font-size: 2rem;
+  }
+  
+  .unitHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}
