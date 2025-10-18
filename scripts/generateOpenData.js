@@ -89,12 +89,14 @@ function generateCSV() {
     ...rows.map(row => row.map(cell => `"${cell}"`).join(','))
   ].join('\n');
 
-  const filename = `Ceny-ofertowe-mieszkan-dewelopera-${projectConfig.developer.name.replace(/[^a-zA-Z0-9]/g, '-')}-${dateStr}.csv`;
+  // Use government-required dated filename format
+  const dateStampedFilename = `Ceny-ofertowe-mieszkan-dewelopera-${projectConfig.developer.name.replace(/[^a-zA-Z0-9]/g, '-')}-${dateStr}.csv`;
   
   return {
     content: csvContent,
-    filename: filename,
-    url: `${projectConfig.site.url}/${filename}`
+    filename: dateStampedFilename,              // Primary: dated filename for dane.gov.pl
+    cleanFilename: 'dataset.csv',               // Alias: clean URL that redirects to latest
+    url: `${projectConfig.site.url}/Ceny-ofertowe-mieszkan-dewelopera-${projectConfig.developer.name.replace(/[^a-zA-Z0-9]/g, '-')}-${dateStr}.csv`
   };
 }
 
@@ -103,13 +105,17 @@ function generateXML() {
   const dateStr = formatDate(today);
   const csv = generateCSV();
   
-  // Generate resource ID for today's CSV
-  const resourceId = `${projectConfig.openData.datasetId.substring(0, 30)}_${dateStr.replace(/-/g, '')}`;
+  // Generate resource ID for today's CSV (max 36 characters per XSD)
+  // Format: first 27 chars of dataset ID + underscore + YYYYMMDD (8 chars) = 36 total
+  const resourceId = `${projectConfig.openData.datasetId.substring(0, 27)}_${dateStr.replace(/-/g, '')}`;
+  
+  // XML filename with date
+  const xmlFilename = `Ceny-ofertowe-mieszkan-dewelopera-${projectConfig.developer.name.replace(/[^a-zA-Z0-9]/g, '-')}-${dateStr}.xml`;
   
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
-<datasets xmlns="http://www.dane.gov.pl/schemas/datasets"
-          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          xsi:schemaLocation="http://www.dane.gov.pl/schemas/datasets https://www.dane.gov.pl/static/xml/otwarte_dane_latest.xsd">
+<od:datasets xmlns:od="urn:otwarte-dane:harvester:1.13"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="urn:otwarte-dane:harvester:1.13 https://dane.gov.pl/media/schemas/otwarte_dane_latest.xsd">
   <dataset status="published">
     <extIdent>${projectConfig.openData.datasetId}</extIdent>
     <title>
@@ -120,15 +126,11 @@ function generateXML() {
       <polish>Ceny ofertowe lokali mieszkalnych lub domów jednorodzinnych zgodnie z art. 16a ust. 1 pkt 1 ustawy z dnia 16 września 2011 r. o ochronie praw nabywcy lokalu mieszkalnego lub domu jednorodzinnego</polish>
       <english>Offer prices of residential premises or single-family houses in accordance with art. 16a par. 1 point 1 of the Act of September 16, 2011 on the protection of the rights of buyers of residential premises or single-family houses</english>
     </description>
+    <url>${projectConfig.site.url}</url>
+    <updateFrequency>daily</updateFrequency>
     <categories>
       <category>ECON</category>
     </categories>
-    <url>${projectConfig.site.url}</url>
-    <updateFrequency>daily</updateFrequency>
-    <hasDynamicData>false</hasDynamicData>
-    <hasHighValueData>true</hasHighValueData>
-    <hasHighValueDataFromEuropeanCommissionList>false</hasHighValueDataFromEuropeanCommissionList>
-    <hasResearchData>false</hasResearchData>
     <resources>
       <resource status="published">
         <extIdent>${resourceId}</extIdent>
@@ -158,10 +160,18 @@ function generateXML() {
       <tag lang="en">Apartments</tag>
       <tag lang="en">Prices</tag>
     </tags>
+    <hasDynamicData>false</hasDynamicData>
+    <hasHighValueData>true</hasHighValueData>
+    <hasHighValueDataFromEuropeanCommissionList>false</hasHighValueDataFromEuropeanCommissionList>
+    <hasResearchData>false</hasResearchData>
   </dataset>
-</datasets>`;
+</od:datasets>`;
 
-  return xml;
+  return {
+    content: xml,
+    filename: xmlFilename,
+    cleanFilename: 'dataset.xml'
+  };
 }
 
 function generateMD5(content) {
@@ -177,32 +187,55 @@ function ensureDirectoryExists(dirPath) {
 function main() {
   console.log('Generating open data files...');
   
+  const today = new Date();
+  const dateStr = formatDate(today);
   const outputDir = path.join(__dirname, '../static/open-data');
   ensureDirectoryExists(outputDir);
   
-  // Generate CSV
+  // Generate CSV with dated filename
   const csv = generateCSV();
   const csvPath = path.join(outputDir, csv.filename);
   fs.writeFileSync(csvPath, csv.content);
   console.log(`CSV generated: ${csvPath}`);
   
-  // Generate XML
+  // Create clean alias (symlink or copy for latest)
+  const csvCleanPath = path.join(outputDir, csv.cleanFilename);
+  fs.writeFileSync(csvCleanPath, csv.content);
+  console.log(`CSV alias: ${csvCleanPath} -> ${csv.filename}`);
+  
+  // Generate XML with dated filename
   const xml = generateXML();
-  const xmlPath = path.join(outputDir, 'dataset.xml');
-  fs.writeFileSync(xmlPath, xml);
+  const xmlPath = path.join(outputDir, xml.filename);
+  fs.writeFileSync(xmlPath, xml.content);
   console.log(`XML generated: ${xmlPath}`);
   
-  // Generate MD5
-  const md5Hash = generateMD5(xml);
-  const md5Path = path.join(outputDir, 'dataset.md5');
+  // Create clean alias for XML
+  const xmlCleanPath = path.join(outputDir, xml.cleanFilename);
+  fs.writeFileSync(xmlCleanPath, xml.content);
+  console.log(`XML alias: ${xmlCleanPath} -> ${xml.filename}`);
+  
+  // Generate MD5 with dated filename
+  const md5Hash = generateMD5(xml.content);
+  const md5Filename = `Ceny-ofertowe-mieszkan-dewelopera-${projectConfig.developer.name.replace(/[^a-zA-Z0-9]/g, '-')}-${dateStr}.md5`;
+  const md5Path = path.join(outputDir, md5Filename);
   fs.writeFileSync(md5Path, md5Hash);
   console.log(`MD5 generated: ${md5Path}`);
+  
+  // Create clean alias for MD5
+  const md5CleanPath = path.join(outputDir, 'dataset.md5');
+  fs.writeFileSync(md5CleanPath, md5Hash);
+  console.log(`MD5 alias: ${md5CleanPath} -> ${md5Filename}`);
   
   console.log('Open data generation completed successfully!');
   console.log(`Dataset ID: ${projectConfig.openData.datasetId}`);
   console.log(`CSV URL: ${csv.url}`);
-  console.log(`XML URL: ${projectConfig.site.url}/dataset.xml`);
-  console.log(`MD5 URL: ${projectConfig.site.url}/dataset.md5`);
+  console.log(`XML URL: ${projectConfig.site.url}/${xml.filename}`);
+  console.log(`MD5 URL: ${projectConfig.site.url}/${md5Filename}`);
+  console.log('');
+  console.log('Clean aliases (always point to latest):');
+  console.log(`CSV: ${projectConfig.site.url}/dataset.csv`);
+  console.log(`XML: ${projectConfig.site.url}/dataset.xml`);
+  console.log(`MD5: ${projectConfig.site.url}/dataset.md5`);
 }
 
 if (require.main === module) {

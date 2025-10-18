@@ -15,6 +15,11 @@
   to = "/open-data/dataset.md5"
   status = 200
 
+[[redirects]]
+  from = "/dataset.csv"
+  to = "/open-data/dataset.csv"
+  status = 200
+
 [[headers]]
   for = "/open-data/*"
   [headers.values]

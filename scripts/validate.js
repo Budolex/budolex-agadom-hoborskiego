@@ -273,7 +273,7 @@ class TemplateValidator {
       }
 
       const xml = generateXML();
-      if (!xml || !xml.includes('<?xml')) {
+      if (!xml || !xml.content || !xml.content.includes('<?xml')) {
         this.error('XML generation failed');
         return false;
       }
