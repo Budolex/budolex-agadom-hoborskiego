@@ -96,7 +96,7 @@ function generateCSV() {
     content: csvContent,
     filename: dateStampedFilename,              // Primary: dated filename for dane.gov.pl
     cleanFilename: 'dataset.csv',               // Alias: clean URL that redirects to latest
-    url: `${projectConfig.site.url}/Ceny-ofertowe-mieszkan-dewelopera-${projectConfig.developer.name.replace(/[^a-zA-Z0-9]/g, '-')}-${dateStr}.csv`
+    url: `${projectConfig.site.url}/open-data/Ceny-ofertowe-mieszkan-dewelopera-${projectConfig.developer.name.replace(/[^a-zA-Z0-9]/g, '-')}-${dateStr}.csv`
   };
 }
 
@@ -229,8 +229,8 @@ function main() {
   console.log('Open data generation completed successfully!');
   console.log(`Dataset ID: ${projectConfig.openData.datasetId}`);
   console.log(`CSV URL: ${csv.url}`);
-  console.log(`XML URL: ${projectConfig.site.url}/${xml.filename}`);
-  console.log(`MD5 URL: ${projectConfig.site.url}/${md5Filename}`);
+  console.log(`XML URL: ${projectConfig.site.url}/open-data/${xml.filename}`);
+  console.log(`MD5 URL: ${projectConfig.site.url}/open-data/${md5Filename}`);
   console.log('');
   console.log('Clean aliases (always point to latest):');
   console.log(`CSV: ${projectConfig.site.url}/dataset.csv`);
