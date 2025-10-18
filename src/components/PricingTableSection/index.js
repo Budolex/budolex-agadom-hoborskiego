@@ -201,7 +201,7 @@ export default function PricingTableSection() {
           <div className={styles.additionalInfo}>
             <p>
               <small>
-                * Wszystkie ceny zawierają VAT w wysokości {unitsData[0]?.vatRate || 23}%. 
+                * Wszystkie ceny zawierają VAT w wysokości {unitsData[0]?.vatRate || 8}%. 
                 Deweloper zastrzega sobie prawo do zmiany cen.
               </small>
             </p>
